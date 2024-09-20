@@ -71,18 +71,18 @@ contract ElectionOracle is AccessControl {
     function transferOwnership(address newOwner) external onlyOwner {
         require(newOwner != address(0), "New owner address cannot be the zero address");
 
-        grantRole(DEFAULT_ADMIN_ROLE, newOwner);
-        revokeRole(DEFAULT_ADMIN_ROLE, owner);
+        _grantRole(DEFAULT_ADMIN_ROLE, newOwner);
+        _revokeRole(DEFAULT_ADMIN_ROLE, owner);
 
         emit OwnershipTransferred(owner, newOwner);
         owner = newOwner;
     }
 
     function grantOracleRole(address account) external onlyOwner {
-        grantRole(ORACLE_ROLE, account);
+        _grantRole(ORACLE_ROLE, account);
     }
 
     function revokeOracleRole(address account) external onlyOwner {
-        revokeRole(ORACLE_ROLE, account);
+        _revokeRole(ORACLE_ROLE, account);
     }
 }
