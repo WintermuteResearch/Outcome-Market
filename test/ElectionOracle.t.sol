@@ -142,4 +142,12 @@ contract ElectionOracleTest is Test {
 
         vm.stopPrank();
     }
+
+    function testCannotFinalizeWithNotSetResult() public {
+        vm.startPrank(oracle);
+        vm.warp(minEndOfElectionTimestamp + 1);
+        vm.expectRevert("Invalid election result is provided.");
+        electionOracle.finalizeElectionResult(ElectionOracle.ElectionResult.NotSet); //dummy ,! finalization
+        vm.stopPrank();
+    }
 }

@@ -50,6 +50,7 @@ contract ElectionOracle is AccessControl {
     function finalizeElectionResult(ElectionResult _finalResult) external onlyRole(ORACLE_ROLE) {
         require(block.timestamp >= minEndOfElectionTimestamp, "Cannot finalize before the end of the election period.");
         require(result == ElectionResult.NotSet, "Election result is already finalized.");
+        require(_finalResult != ElectionResult.NotSet, "Invalid election result is provided.");
 
         result = _finalResult;
         isResultFinalized = true;
