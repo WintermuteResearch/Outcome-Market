@@ -125,7 +125,7 @@ contract OutcomeMarketTest is Test {
         vm.assume(_receiver != address(0));
         vm.assume(_receiver != address(market));
         vm.assume(_amount < 10 ** 20);
-        vm.assume(_amount > 1);
+        vm.assume(_amount > 0);
         ElectionResult _electionResult = _electionResultAssumptions(_result);
 
         _mint(_receiver, _amount, false);
@@ -148,7 +148,7 @@ contract OutcomeMarketTest is Test {
         vm.assume(_receiver != address(0));
         vm.assume(_receiver != address(market));
         vm.assume(_amount < 10 ** 20);
-        vm.assume(_amount > 10 ** 6);
+        vm.assume(_amount > 0);
 
         vm.assume(_receiver != testTrader);
 

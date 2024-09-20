@@ -138,19 +138,19 @@ contract OutcomeMarket is IOutcomeMarket {
     }
 
     /// @notice Handles redemption when neither Trump nor Harris won
+    /// @dev Exchange rate in this case is 1 outcome token -> 0.5 collateral token
     function _handleRedeemCaseOther() internal {
-        uint256 _totalCollateral;
+        uint256 _totalBalance;
         uint256 _outcomeTokensTotalSupply = outcomeTokens[0].totalSupply() + outcomeTokens[1].totalSupply();
         for (uint256 i = 0; i < outcomeTokens.length; i++) {
             OutcomeERC20 _outcomeToken = outcomeTokens[i];
             uint256 _senderBalance = _outcomeToken.balanceOf(msg.sender);
             if (_senderBalance > 0) {
-                // Note: exchange rate in this case is 1 outcome token -> 0.5 collateral token
-                uint256 _collateralAmount = _calcCollateralShare(_senderBalance, _outcomeTokensTotalSupply);
-                _totalCollateral += _collateralAmount;
                 _outcomeToken.burn(msg.sender, _senderBalance);
+                _totalBalance += _senderBalance;
             }
         }
+        uint256 _totalCollateral = _calcCollateralShare(_totalBalance, _outcomeTokensTotalSupply);
         if (_totalCollateral != 0) {
             collateralToken.transfer(msg.sender, _totalCollateral);
             emit PayoutDistributed(msg.sender, _totalCollateral);
