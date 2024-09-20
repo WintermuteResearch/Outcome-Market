@@ -14,7 +14,7 @@ contract ElectionOracle is AccessControl {
     ElectionResult public result;
     bool public isResultFinalized;
     address public owner;
-    uint256 public minEndOfElectionTimestamp;
+    uint256 public immutable minEndOfElectionTimestamp;
     uint256 public resultFinalizationTimestamp;
 
     bytes32 public constant ORACLE_ROLE = keccak256("ORACLE_ROLE");
