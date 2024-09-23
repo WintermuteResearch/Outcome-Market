@@ -3,7 +3,7 @@ pragma solidity ^0.8.25;
 
 interface IOutcomeMarket {
 
-    /// @notice Takes USDC and mints both KAMALA and HARRIS for each unit
+    /// @notice Takes USDC and mints both TRUMP and HARRIS for each unit
     /// @param usdcAmount The USDC amount for conversion to conditional tokens
     function mint(uint256 usdcAmount) external;
 

@@ -37,7 +37,7 @@ contract OutcomeMarket is IOutcomeMarket {
     /// @param amount The amount of collateral distributed
     event PayoutDistributed(address indexed receiver, uint256 indexed amount);
 
-    /// @notice Emitted when a user creates a new positions
+    /// @notice Emitted when a user creates new positions
     /// @param user The address of the user minting tokens
     /// @param collateralAmount The amount of collateral token used for minting
     event PositionCreated(address indexed user, uint256 indexed collateralAmount);
