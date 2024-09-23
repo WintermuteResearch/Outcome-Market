@@ -40,9 +40,6 @@ contract ElectionOracle is AccessControl {
 
         require(_minEndOfElectionTimestamp > block.timestamp, "minEndOfElectionTimestamp must be in the future.");
         minEndOfElectionTimestamp = _minEndOfElectionTimestamp;
-
-        result = ElectionResult.NotSet;
-        isResultFinalized = false;
     }
 
     modifier onlyOwner() {
