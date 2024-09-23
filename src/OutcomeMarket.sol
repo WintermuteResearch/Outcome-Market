@@ -14,7 +14,7 @@ contract OutcomeMarket is IOutcomeMarket {
     address public constant OTHER_WINNER = address(0xdEaD);
 
     /// @notice The difference between decimals of outcome tokens and USDC
-    uint256 public constant COLLATERAL_TOKEN_DECIMAL_DIFF = 1e12;
+    uint256 private constant COLLATERAL_TOKEN_DECIMAL_DIFF = 1e12;
 
     /// @notice The ERC20 token used as collateral for this market
     IERC20 public immutable collateralToken;
