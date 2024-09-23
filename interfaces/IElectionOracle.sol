@@ -15,4 +15,10 @@ interface IElectionOracle {
 
     // Function to check if the election has been finalized.
     function isElectionFinalized() external view returns (bool);
+
+    // Function to retrieve the minimum timestamp marking the end of the election period before it can be finalized.
+    function minEndOfElectionTimestamp() external view returns (uint256);
+
+    // Function to retrieve whe the result was finalized.
+    function resultFinalizationTimestamp() external view returns (uint256);
 }

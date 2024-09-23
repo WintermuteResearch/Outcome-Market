@@ -2,15 +2,9 @@
 pragma solidity ^0.8.25;
 
 import "@openzeppelin/contracts/access/AccessControl.sol";
+import "../interfaces/IElectionOracle.sol";
 
 contract ElectionOracle is AccessControl {
-    enum ElectionResult {
-        NotSet,
-        Trump,
-        Harris,
-        Other
-    }
-
     ElectionResult public result;
     bool public isResultFinalized;
     address public owner;
