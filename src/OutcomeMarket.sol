@@ -74,8 +74,8 @@ contract OutcomeMarket is IOutcomeMarket {
     /// @param _collateral The ERC20 token used as collateral for this market
     /// @param _oracle The oracle contract that provides market results
     constructor(IERC20 _collateral, IElectionOracle _oracle) {
-        outcomeTokens[0] = new OutcomeERC20("Trump", "TRUMP", ElectionResult.Trump);
-        outcomeTokens[1] = new OutcomeERC20("Harris", "HARRIS", ElectionResult.Harris);
+        outcomeTokens[0] = new OutcomeERC20("TRUMP", "TRUMPWIN", ElectionResult.Trump);
+        outcomeTokens[1] = new OutcomeERC20("HARRIS", "HARRISWIN", ElectionResult.Harris);
         collateralToken = _collateral;
         oracle = _oracle;
     }
